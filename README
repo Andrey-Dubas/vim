@@ -1,0 +1,14 @@
+vim installation
+http://www.xorpd.net/blog/vim_python3_install.html
+
+1.) Install Vundle - https://github.com/VundleVim/Vundle.vim.
+
+mkdir -p ~/.vim/bundle
+cd ~/.vim/bundle
+git clone http://github.com/VundleVim/Vundle.vim
+
+2) Install the required modules:
+pip
+sudo apt-get install pip
+pip install pyflakes pep8 pylint ipython
+
