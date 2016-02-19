@@ -1,45 +1,33 @@
-"to install Vundle:
-"mkdir ~/.vim/bundle
-"git clone git://github.com/gmarik/Vundle.git ~/.vimrc/bundle/Vundle.vim
+execute pathogen#infect()
+syntax on
 
-"for Vundle
+syntax enable
+set background=dark
+set t_Co=256
+let g:solarized_termcolors=256
+colorscheme solarized
 
-" libs for python: pip install pyflakes pep8 pylint ipython 
+set nocompatible
+filetype off
+
 set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
-
-Plugin 'gmarik/Vundle.vim'		" let Vundle manage Vundle, required
-"common
-Plugin 'scrooloose/nerdtree'
-
-Plugin 'majutsushi/tagbar'          	" Class/module browser
-"------------------=== Other ===----------------------
-"Plugin 'bling/vim-airline'   	    	" Lean & mean status/tabline for vim
-"Plugin 'fisadev/FixedTaskList.vim'  	" Pending tasks list
-"Plugin 'rosenfeld/conque-term'      	" Consoles as buffers
-"Plugin 'tpope/vim-surround'	   	" Parentheses, brackets, quotes, XML
-"tags, and more
-"
-""--------------=== Snippets support ===---------------
-Plugin 'garbas/vim-snipmate'		" Snippets manager
-Plugin 'MarcWeber/vim-addon-mw-utils'	" dependencies #1
-Plugin 'tomtom/tlib_vim'		" dependencies #2
-Plugin 'honza/vim-snippets'		" snippets repo
-
-
-"g++
-"Plugin 
-"
-"---------------=== Languages support ===-------------
-"" --- Python ---
-Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints, highlighting, run and ipdb and more) screencast to view: https://www.youtube.com/watch?v=67OZNp9Z0CQ
-Plugin 'davidhalter/jedi-vim' 		" Jedi-vim autocomplete plugin
-Plugin 'mitsuhiko/vim-jinja'		" Jinja support for vim
-Plugin 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
-
+so .vim/vimrc_scripts/vundle_plugin_list
 call vundle#end()
+filetype on
+filetype plugin on
 filetype plugin indent on
+
+" autocmd vimenter * TagbarToggle
+set hlsearch
+" let g:snippets_dir = "~/.vim/vim-snippets/snippets"
+
+set laststatus=2
+let g:airline_theme='badwolf'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 
 fu! CppSettings()

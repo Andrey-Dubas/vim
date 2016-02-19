@@ -12,3 +12,16 @@ pip
 sudo apt-get install pip
 pip install pyflakes pep8 pylint ipython
 
+
+
+n) set up for terminal
+Set up your terminal to support 256 colors:
+http://vim.wikia.com/wiki/256_colors_in_vim
+
+put into ~/.profile
+
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+        export TERM='xterm-256color'
+else
+        export TERM='xterm-color'
+fi
