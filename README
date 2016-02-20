@@ -10,11 +10,12 @@ git clone http://github.com/VundleVim/Vundle.vim
 2) Install the required modules:
 pip
 sudo apt-get install pip
-pip install pyflakes pep8 pylint ipython
+pip install pyflakes pep8 pylint ipython PyClewn dbgp vim-debug
+~/.vim/vimrc_scripts/install-vim-debug.py
 
+// http://ethanschoonover.com/solarized
 
-
-n) set up for terminal
+4) set up for terminal
 Set up your terminal to support 256 colors:
 http://vim.wikia.com/wiki/256_colors_in_vim
 
@@ -25,3 +26,15 @@ if [ -e /usr/share/terminfo/x/xterm-256color ]; then
 else
         export TERM='xterm-color'
 fi
+
+
+# javascript
+
+npm install -g jshint
+run install.sh in ~/.vim/bundle/YouCompleteMe
+cd ~/.vim/bundle/tern_for_vim && sudo sudo npm install
+
+
+YouCompleteMe vs. jedi-vim:
+I had an compatipility issue (python3 vs. python2). A possible solution could be changing a 
+script .vim/bundle/jedi-vim/autoload/jedi.vim: setup_py_version

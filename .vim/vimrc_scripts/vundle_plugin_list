@@ -21,6 +21,8 @@ Plugin 'garbas/vim-snipmate'" Snippets manager
 Plugin 'MarcWeber/vim-addon-mw-utils'" dependencies #1
 Plugin 'tomtom/tlib_vim'" dependencies #2
 Plugin 'honza/vim-snippets'" snippets repo
+
+Plugin 'neovim/neovim'
 				
 
 "---------------=== Languages support ===-------------
@@ -29,7 +31,15 @@ Plugin 'klen/python-mode'               " Python mode (docs, refactor, lints, hi
 Plugin 'davidhalter/jedi-vim' 		" Jedi-vim autocomplete plugin
 Plugin 'mitsuhiko/vim-jinja'            " Jinja support for vim
 Plugin 'mitsuhiko/vim-python-combined'  " Combined Python 2/3 for Vim
+Plugin 'joonty/vdebug.git'              " Debug Python
 
 
 "  --- c++ ---
 
+
+"  --- js ---
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
