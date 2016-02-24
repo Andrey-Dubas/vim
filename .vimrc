@@ -29,9 +29,19 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
+set backspace=indent,eol,start
+
+augroup project
+	autocmd!
+	autocmd BufRead,BufNewFile *.h,*.c,*.hpp set filetype=c.doxygen
+augroup END
 
 fu! CppSettings()
-        :NERDTree 
+	" setlocal omnifunc=c++complete#CompleteJS
+	let g:clang_library_path='/usr/lib/llvm-3.8/lib'
+	autocmd vimenter * NERDTree
+	autocmd VimEnter * wincmd p
+	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 	set tabstop=4
 	set softtabstop=4
 	set shiftwidth=4
@@ -45,7 +55,8 @@ fu! CppSettings()
 endfunction
 
 function! PythonSettings()
-        :NERDTree 
+	autocmd vimenter * NERDTree
+	autocmd VimEnter * wincmd p
 	set tabstop=4
 	set softtabstop=4
 	set shiftwidth=4
@@ -105,11 +116,11 @@ fu! JsSettings()
 endfunction
 
 set nu
-colorscheme desert
+" colorscheme desert
 
-autocmd BufNewFile,BufRead *.h,*.cpp setfiletype cpp
-autocmd BufNewFile,BufRead *.js setfiletype js 
+au BufRead,BufNewFile,BufEnter *.cpp,*.c,*.h,*.hpp set filetype=cpp
 
 autocmd Filetype cpp call CppSettings() 
 au Filetype python :call PythonSettings() 
 autocmd Filetype javascript :call JsSettings() 
+
